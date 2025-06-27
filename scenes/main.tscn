@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv58xnbxh2a2l"]
+[gd_scene load_steps=5 format=3 uid="uid://cv58xnbxh2a2l"]
 
 [ext_resource type="Script" uid="uid://cs5555md7agld" path="res://scripts/grid_system.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bo6ajc666r0l7" path="res://scripts/grid_render.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://d0jcmwi1rci6m" path="res://scripts/snake_game.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://gu138t6awtpr" path="res://scripts/snake_head.gd" id="4_jyhfs"]
 
-[node name="SnakeGame" type="Node2D"]
+[node name="Main" type="Node"]
+
+[node name="SnakeGame" type="Node2D" parent="."]
 script = ExtResource("3_sugp2")
 
-[node name="GridSystem" type="Node2D" parent="."]
+[node name="GridSystem" type="Node2D" parent="SnakeGame"]
 script = ExtResource("1_o5qli")
 
-[node name="GridRenderer" type="Node2D" parent="."]
+[node name="GridRenderer" type="Node2D" parent="SnakeGame"]
 script = ExtResource("2_0wfyh")
 
-[node name="GameTimer" type="Timer" parent="."]
+[node name="GameTimer" type="Timer" parent="SnakeGame"]
+
+[node name="SnakeHead" type="Sprite2D" parent="SnakeGame"]
+script = ExtResource("4_jyhfs")

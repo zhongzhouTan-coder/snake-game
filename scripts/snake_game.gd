@@ -22,6 +22,7 @@ func _input(event):
 	if not game_running:
 		return
 	
+	# Movement controls
 	if event.is_action_pressed("ui_up"):
 		grid_system.set_snake_direction(Vector2i.UP)
 	elif event.is_action_pressed("ui_down"):

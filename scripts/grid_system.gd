@@ -112,6 +112,10 @@ func spawn_food():
 		food_position = empty_positions[randi() % empty_positions.size()]
 		grid[food_position.y][food_position.x] = CellType.FOOD
 
+func get_snake_direction() -> Vector2i:
+	"""Get the current direction the snake is moving"""
+	return snake_direction
+
 func set_snake_direction(new_direction: Vector2i):
 	"""Set snake direction, preventing reverse movement"""
 	if new_direction + snake_direction != Vector2i.ZERO:
