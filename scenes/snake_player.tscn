@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://diq7ypuj6tvii"]
+
+[ext_resource type="Texture2D" uid="uid://6et3ngggp5cp" path="res://assets/textures/snake_game.png" id="1_l4xit"]
+[ext_resource type="Script" uid="uid://gu138t6awtpr" path="res://scripts/snake_head.gd" id="2_d1ojm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4xit"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ojm"]
+atlas = ExtResource("1_l4xit")
+
+[node name="SnakePlayer" type="Node2D"]
+
+[node name="SnakeHead" type="CharacterBody2D" parent="."]
+script = ExtResource("2_d1ojm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeHead"]
+shape = SubResource("RectangleShape2D_l4xit")
+
+[node name="Sprite2D" type="Sprite2D" parent="SnakeHead"]
+texture = SubResource("AtlasTexture_d1ojm")
+hframes = 4
+vframes = 4
+frame = 6
