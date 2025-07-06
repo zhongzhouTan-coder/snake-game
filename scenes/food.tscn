@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6et3ngggp5cp" path="res://assets/textures/snake_game.png" id="1_xven1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af40f"]
-size = Vector2(16, 16)
+size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_370ap"]
 atlas = ExtResource("1_xven1")
@@ -23,4 +23,4 @@ shape = SubResource("RectangleShape2D_af40f")
 texture = SubResource("AtlasTexture_370ap")
 hframes = 4
 vframes = 4
-frame = 8
+frame = 7

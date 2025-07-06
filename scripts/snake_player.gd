@@ -20,7 +20,7 @@ signal snake_grew()
 signal snake_died()
 
 func _ready():
-	pass
+	snake_head.current_direction = current_direction
 
 func _input(event):
 	"""处理输入"""

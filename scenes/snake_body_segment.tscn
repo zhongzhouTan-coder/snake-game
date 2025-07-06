@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6et3ngggp5cp" path="res://assets/textures/snake_game.png" id="1_v6jr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue2jj"]
-size = Vector2(16, 16)
+size = Vector2(8, 8)
 
 [node name="SnakeBodySegment" type="Node2D"]
 script = ExtResource("1_ue2jj")
@@ -18,4 +18,4 @@ shape = SubResource("RectangleShape2D_ue2jj")
 texture = ExtResource("1_v6jr7")
 hframes = 4
 vframes = 4
-frame = 7
+frame = 6
