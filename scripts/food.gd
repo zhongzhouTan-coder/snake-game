@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Food
 
-@export var food_value: int = 10
+@export var value: float = 10.0
 
 @onready var area: Area2D = $Area2D
 
@@ -15,3 +15,6 @@ func _ready() -> void:
 func _on_body_entered(_body: Node2D):
 	detect_body_enter.emit(self)
 	area.set_deferred("monitoring", false)
+
+func get_score() -> float:
+	return self.value

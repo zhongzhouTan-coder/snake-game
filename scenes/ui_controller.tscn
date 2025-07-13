@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnnhgsjvof6mu"]
+
+[ext_resource type="Script" uid="uid://cosm7cuxl2e6t" path="res://scripts/ui_controller.gd" id="1_ol88s"]
+[ext_resource type="Script" uid="uid://jsvo0oyljlf7" path="res://scripts/score_board.gd" id="2_tocpu"]
+
+[node name="UIController" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ol88s")
+
+[node name="ScoreBoard" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_tocpu")
+
+[node name="ScoreContainer" type="VBoxContainer" parent="ScoreBoard"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="ScoreBoard/ScoreContainer"]
+layout_mode = 2
+text = "Score: 100"
+
+[node name="SpeedLabel" type="Label" parent="ScoreBoard/ScoreContainer"]
+layout_mode = 2
+text = "speed: 20"

@@ -4,14 +4,11 @@ extends Node
 @onready var snake_player: SnakePlayer = $SnakePlayer
 @onready var food_manager: FoodManager = $FoodManager
 
-var game_score: int = 0
 var is_game_running: bool = false
-var move_interval: float = 0.5
+var move_interval: float = 0.2
 var accumulate_time: float = 0.0
 
 signal game_started()
-signal game_over(final_score: int)
-signal score_changed(new_score: int)
 
 func _ready():
 	food_manager.initialize(self.food_pos_generator)
@@ -45,14 +42,10 @@ func connect_signals():
 
 func start_game():
 	is_game_running = true
-	game_score = 0
 	game_started.emit()
-	score_changed.emit(game_score)
 
 func end_game():
-	print("Game ended! Final score: ", game_score)
 	is_game_running = false
-	game_over.emit(game_score)
 
 
 func food_pos_generator() -> Vector2:
@@ -67,13 +60,18 @@ func food_pos_generator() -> Vector2:
 	var spawn_position = valid_positions[randi_range(0, valid_positions.size() - 1)]
 	return GridSystem.grid_to_world(spawn_position)
 
-func _on_food_eaten(food_value: int):
-	print("Food eaten! Points gained: ", food_value)
-	game_score += food_value
-	score_changed.emit(game_score)
-	print("Score updated: ", game_score)
+func _on_food_eaten(value: float):
+	print("Food eaten! Points gained: ", value)
+	PlayerData.increase_player_score(value)
+	move_interval = calculate_move_interval()
+	PlayerData.update_player_speed(1 / move_interval)
+	food_manager.free_food()
+	food_manager.spawn_food()
 	snake_player.grow()
-	move_interval = max(0.02, move_interval * pow(0.9, game_score / 10))
+
+func calculate_move_interval() -> float:
+	var score = PlayerData.player_score
+	return max(0.01, move_interval * pow(0.9, score / 100))
 
 func _on_snake_died():
 	print("Snake died!")

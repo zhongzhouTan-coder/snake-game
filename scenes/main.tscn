@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv58xnbxh2a2l"]
+[gd_scene load_steps=6 format=3 uid="uid://cv58xnbxh2a2l"]
 
 [ext_resource type="Script" uid="uid://bcoly34fmv1hw" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://diq7ypuj6tvii" path="res://scenes/snake_player.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://cq5u7ji7wt0o5" path="res://scripts/food_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://g6yitrlqd201" path="res://scenes/background.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cnnhgsjvof6mu" path="res://scenes/ui_controller.tscn" id="5_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jyhfs")
@@ -19,3 +20,7 @@ visibility_layer = 2
 script = ExtResource("3_sugp2")
 
 [node name="GameTimer" type="Timer" parent="."]
+
+[node name="UIController" parent="." instance=ExtResource("5_tefeu")]
+offset_left = 800.0
+offset_right = 840.0

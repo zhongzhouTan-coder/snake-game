@@ -8,7 +8,7 @@ var food_instance: Food = null
 
 var position_generator: Callable
 
-signal food_eaten(food_value: int)
+signal food_eaten(value: float)
 
 func initialize(generator: Callable):
 	position_generator = generator
@@ -35,7 +35,5 @@ func spawn_food():
 	print("Food spawned at position: ", pos)
 
 func _on_food_eaten(food_node: Food):
-	print("Food eaten! Value: ", food_node.food_value)
-	food_eaten.emit(food_node.food_value)
-	free_food()
-	spawn_food()
+	print("Food eaten! Value: ", food_node.value)
+	food_eaten.emit(food_node.value)
