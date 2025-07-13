@@ -11,7 +11,7 @@ script = ExtResource("1_jyhfs")
 [node name="Background" parent="." instance=ExtResource("5_tbgi4")]
 
 [node name="SnakePlayer" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(1080, 584)
+position = Vector2(424, 312)
 
 [node name="FoodManager" type="Node2D" parent="."]
 light_mask = 2

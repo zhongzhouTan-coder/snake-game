@@ -18,4 +18,4 @@ shape = SubResource("RectangleShape2D_ue2jj")
 texture = ExtResource("1_v6jr7")
 hframes = 4
 vframes = 4
-frame = 6
+frame = 10

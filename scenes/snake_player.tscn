@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://diq7ypuj6tvii"]
+[gd_scene load_steps=17 format=3 uid="uid://diq7ypuj6tvii"]
 
 [ext_resource type="Script" uid="uid://b0n4jore80ko4" path="res://scripts/snake_player.gd" id="1_aw2lg"]
 [ext_resource type="Texture2D" uid="uid://6et3ngggp5cp" path="res://assets/textures/snake_game.png" id="1_l4xit"]
@@ -26,8 +26,10 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_30all")
 blend_point_2/pos = Vector2(0, -0.9)
 blend_point_3/node = SubResource("AnimationNodeAnimation_s6ffw")
 blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
 
 [sub_resource type="Animation" id="Animation_rrg0n"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +40,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [7]
 }
 
-[sub_resource type="Animation" id="Animation_30all"]
+[sub_resource type="Animation" id="Animation_aw2lg"]
 resource_name = "walk_down"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -53,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [7]
 }
 
 [sub_resource type="Animation" id="Animation_nv2mj"]
@@ -68,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_s6ffw"]
@@ -83,10 +85,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [9]
+"values": [6]
 }
 
-[sub_resource type="Animation" id="Animation_aw2lg"]
+[sub_resource type="Animation" id="Animation_30all"]
 resource_name = "walk_up"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -104,22 +106,20 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rrg0n"]
 _data = {
 &"RESET": SubResource("Animation_rrg0n"),
-&"walk_down": SubResource("Animation_30all"),
+&"walk_down": SubResource("Animation_aw2lg"),
 &"walk_left": SubResource("Animation_nv2mj"),
 &"walk_right": SubResource("Animation_s6ffw"),
-&"walk_up": SubResource("Animation_aw2lg")
+&"walk_up": SubResource("Animation_30all")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4xit"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1ojm"]
-atlas = ExtResource("1_l4xit")
-
 [node name="SnakePlayer" type="Node2D"]
 script = ExtResource("1_aw2lg")
 
 [node name="SnakeHead" type="CharacterBody2D" parent="."]
+slide_on_ceiling = false
 script = ExtResource("2_d1ojm")
 
 [node name="AnimationTree" type="AnimationTree" parent="SnakeHead"]
@@ -127,7 +127,7 @@ deterministic = false
 root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeBlendSpace2D_nv2mj")
 anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2(0, 0)
+parameters/blend_position = Vector2(-0.00133866, 0.0294118)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SnakeHead"]
 root_node = NodePath("../Sprite2D")
@@ -139,10 +139,10 @@ libraries = {
 shape = SubResource("RectangleShape2D_l4xit")
 
 [node name="Sprite2D" type="Sprite2D" parent="SnakeHead"]
-texture = SubResource("AtlasTexture_d1ojm")
+texture = ExtResource("1_l4xit")
 hframes = 4
 vframes = 4
-frame = 10
+frame = 7
 
 [node name="SnakeBody" type="Node2D" parent="."]
 script = ExtResource("3_g0ylk")
