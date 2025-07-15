@@ -3,24 +3,22 @@
 [ext_resource type="Script" uid="uid://v0pusfsxj54q" path="res://scripts/food.gd" id="1_af40f"]
 [ext_resource type="Texture2D" uid="uid://6et3ngggp5cp" path="res://assets/textures/snake_game.png" id="1_xven1"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_af40f"]
+atlas = ExtResource("1_xven1")
+region = Rect2(0, 48, 16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af40f"]
 size = Vector2(8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_370ap"]
-atlas = ExtResource("1_xven1")
 
 [node name="Food" type="Node2D"]
 light_mask = 2
 visibility_layer = 2
 script = ExtResource("1_af40f")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_af40f")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_af40f")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = SubResource("AtlasTexture_370ap")
-hframes = 4
-vframes = 4
-frame = 12

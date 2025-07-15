@@ -5,6 +5,12 @@ class_name FoodManager
 @export var food_scene: PackedScene = preload("res://scenes/food.tscn")
 
 var food_instance: Food = null
+var food_types: Array[Food.FoodType] = [
+	Food.FoodType.APPLE,
+	Food.FoodType.BANANA,
+	Food.FoodType.ORANGE,
+	Food.FoodType.GRAPE,
+]
 
 var position_generator: Callable
 
@@ -28,6 +34,7 @@ func spawn_food():
 		return
 
 	food_instance = food_scene.instantiate()
+	food_instance.initialize(food_types[randi_range(0, food_types.size() - 1)])
 	food_instance.detect_body_enter.connect(_on_food_eaten)
 	var pos = position_generator.call()
 	food_instance.global_position = pos
