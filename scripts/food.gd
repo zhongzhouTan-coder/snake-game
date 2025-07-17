@@ -26,6 +26,8 @@ var fruit_regions = {
 	FoodType.GRAPE: Rect2(48, 48, 16, 16)
 }
 
+var collected: bool = false
+
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
 	setup_sprite()
@@ -41,8 +43,11 @@ func initialize(type: FoodType):
 	food_type = type
 
 func _on_body_entered(_body: Node2D):
+	if collected:
+		return
 	detect_body_enter.emit(self)
 	area.set_deferred("monitoring", false)
+	collected = true
 
 func get_score() -> float:
 	return self.value

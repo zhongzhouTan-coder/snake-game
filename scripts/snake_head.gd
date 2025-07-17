@@ -6,6 +6,8 @@ class_name SnakeHead
 
 var current_direction = Vector2.ZERO
 
+signal move_head_finished
+
 func initialize(initial_direction: Vector2):
 	change_direction(initial_direction)
 
@@ -17,6 +19,7 @@ func move_head(distance: int, move_duration: float = 0.2) -> KinematicCollision2
 	var tween = create_tween()
 
 	tween.tween_property(self, "position", position + current_direction * distance, move_duration)
+	tween.finished.connect(func(): move_head_finished.emit())
 	return null
 
 func change_direction(direction: Vector2):

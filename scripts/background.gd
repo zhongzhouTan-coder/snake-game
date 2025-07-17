@@ -9,8 +9,8 @@ class_name Background
 var empty_positions: Array[Vector2] = []
 
 func _ready() -> void:
-	var grid_width = GridSystem.get_grid_width()
-	var grid_height = GridSystem.get_grid_height()
+	var grid_width = GameSetting.get_grid_width()
+	var grid_height = GameSetting.get_grid_height()
 	for x in range(grid_width):
 		for y in range(grid_height):
 			var pos = Vector2(x, y)

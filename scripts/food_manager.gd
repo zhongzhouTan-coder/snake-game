@@ -38,7 +38,7 @@ func spawn_food():
 	food_instance.detect_body_enter.connect(_on_food_eaten)
 	var pos = position_generator.call()
 	food_instance.global_position = pos
-	add_child(food_instance)
+	call_deferred("add_child", food_instance)
 	print("Food spawned at position: ", pos)
 
 func _on_food_eaten(food_node: Food):

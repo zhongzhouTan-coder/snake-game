@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GridSystem="*res://scripts/grid_system_util.gd"
-PlayerData="*res://scripts/data_store.gd"
+GameSetting="*res://scripts/grid_system_util.gd"
+GameData="*res://scripts/data_store.gd"
 
 [display]
 
